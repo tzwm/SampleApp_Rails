@@ -4,13 +4,11 @@ source 'http://ruby.taobao.org'
 
 
 gem 'rails', '3.2.12'
-gem 'bootstrap-sass', '2.0.4'
-gem 'bcrypt-ruby', '3.0.1'
+gem 'bootstrap-sass'
+gem 'bcrypt-ruby'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -27,8 +25,12 @@ end
 
 group :development do
 	gem 'annotate', '2.5.0'
+	gem 'sqlite3'
 end
 
+group :production do
+	gem 'pg'
+end
 
 gem 'jquery-rails', '2.0.2'
 
