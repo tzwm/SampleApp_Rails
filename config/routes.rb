@@ -1,12 +1,17 @@
 SampleApp::Application.routes.draw do
-
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
 
   root to: 'static_pages#home'
   match '/help', to: 'static_pages#help'
   match '/about', to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
 
-  resources :users  
+  # resources :users  
   match '/signup', to: 'users#new'
 
   
@@ -15,6 +20,9 @@ SampleApp::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   resources :microposts, only: [:create, :destroy]
+
+  resources :relationships, only: [:create, :destroy]
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
