@@ -2,15 +2,16 @@
 #
 # Table name: microposts
 #
-#  id         :integer          not null, primary key
-#  content    :string(255)
-#  user_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  content     :string(255)
+#  user_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  in_reply_to :string(255)
 #
 
 class Micropost < ActiveRecord::Base
-  attr_accessible :content
+  attr_accessible :content, :in_reply_to
   belongs_to :user
 
   validates :user_id, presence: true
